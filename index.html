@@ -38,10 +38,12 @@
 </div>
 <div class="password hidden"></div>
 <div class="button start">START HACKING!</div>
-<div class="blink granted hidden">ACCESS GRANTED!</div>
+<div class="blink granted hidden"> <a href="portfolio/index.html" class="button is-primary padding hidden"><span data-heading="Welcome">Welcome</span>welcome</a>
 <div class=" button rerun hidden">RERUN</div>
+</div>
+
 	
-	 <a href="portfolio/index.html" class="button is-primary padding"><span data-heading="Welcome">Welcome</span>welcome</a>
+	
 	
 </h1>
 
@@ -81,7 +83,7 @@ var interval = setInterval(function(){
 function hack() {
 	counter++;
 	if(counter == password.length){
-		$('.granted, .rerun').removeClass('hidden');
+		$('.granted, .rerun, .welcome').removeClass('hidden');
 	}
 }
 $(window).on('keydown', hack);
@@ -95,7 +97,7 @@ $('.rerun').on('click', function() {
 		index = Math.floor((Math.random() * passwords.length));
 	} while(index == indexOld);
 	
-	$('.granted, .rerun').addClass('hidden');
+	$('.granted, .rerun,.welcome').addClass('hidden');
 	password = passwords[index];
 	characters = [];
 	counter = 0;
