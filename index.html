@@ -7,7 +7,95 @@
 	<link href="https://fonts.googleapis.com/css?family=Beth+Ellen&display=swap" rel="stylesheet">
 	<link rel="stylesheet" media="screen" href="styles.css" type="text/css"/>
 	<link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" type="text/css"/>
+	<style type="text/css">	@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,900');
+*{
+  box-sizing:border-box;
 
+}
+body{
+  background:black;
+  margin:0;
+  padding:0;
+  font-family: 'Montserrat', sans-serif;
+}
+.wrapper{
+  width: 90%;
+  padding:5rem;
+  grid-gap: 0.2rem;
+  color:white;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+}
+
+.blackpink{
+  font-size: 7rem;
+  font-weight: 500;
+  letter-spacing: 8px;
+  padding:0rem 2rem;
+  border: 10px solid white;
+  text-align: center;
+  opacity:0;
+  border-radius: 5px;
+  animation:lightson .5s ease 3 forwards;
+}
+@keyframes lightson{
+  0%{
+    opacity:0;
+    text-shadow: 0px 0px 0px #FE1DAD, 0px 0px 0px #FE1DAD, 0px 0px 0px #FE1DAD;
+    box-shadow: 0px 0px 0px 0px #fe1dad, 0px 0px 0px 0px #fe1dad,0px 0px 0px 0px #fe1dad, inset 0px 0px 0px #FE1DAD;
+  }
+  20%{
+    opacity:0.5;
+    text-shadow: 0px 0px 2.5px #FE1DAD, 0px 0px 5px #FE1DAD, 1px 1px 25px #FE1DAD;
+    box-shadow: 0px 0px 5px 0px #fe1dad, 0px 0px 10px 0px #fe1dad,0px 0px 50px 0px #fe1dad, inset 0px 0px 20px #FE1DAD;
+  }
+  40%{
+    opacity:0;
+    text-shadow: 0px 0px 1px #FE1DAD, 0px 0px 2px #FE1DAD, 0px 0px 10px #FE1DAD;
+    box-shadow: 0px 0px 2px 0px #fe1dad, 0px 0px 5px 0px #fe1dad,0px 0px 25px 0px #fe1dad, inset 0px 0px 10px #FE1DAD;
+  }
+  50%{
+    opacity:1;
+    text-shadow: 0px 0px 5px #FE1DAD, 0px 0px 10px #FE1DAD, 1px 1px 50px #FE1DAD;
+    box-shadow: 0px 0px 10px 0px #fe1dad, 0px 0px 20px 0px #fe1dad,0px 0px 100px 0px #fe1dad, inset 0px 0px 30px #FE1DAD;
+  }
+  100%{
+    opacity:1;
+    text-shadow: 0px 0px 5px #FE1DAD, 0px 0px 10px #FE1DAD, 1px 1px 50px #FE1DAD;
+    box-shadow: 0px 0px 10px 0px #fe1dad, 0px 0px 30px 0px #fe1dad,0px 0px 100px 0px #fe1dad, inset 0px 0px 30px #FE1DAD;
+  }
+}
+
+.blackpink span{
+  transform: scaleX(-1);
+  display: inline-block;
+}
+.blackpink__tagline{
+  text-align: right;
+  font-size: .8rem;
+}
+
+@media(max-width: 1150px){
+  .blackpink{
+    font-size: 5rem;
+    padding:2rem 0;
+    letter-spacing: 2px;
+  }
+}
+
+
+@media(max-width: 789px){
+  .wrapper{
+     width: 100%;
+     padding:2rem;
+}
+  .blackpink{
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+}</style>
 	<!-- https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css -->
 
 </head>
@@ -28,17 +116,27 @@
 	<div class="play" data-splitting>PLAY</div>
 	<div class="time">--:--</div>
 	<div class="recordSpeed">SLP 0:00:00</div>
+	
 	<!-- https://codepen.io/mandymichael/pen/mmmevr -->
 <h1 data-heading="">
 
 
 	<div class="info">
+
+
 	<p>You've accessed the mainframe using a double-handshake attack on the firewall,<br>you need to brute-force the password...</p>
 	<p class="hidden">Press any button to hack<span class="blink">_</span></p>
 </div>
 <div class="password hidden"></div>
 <div class="button start">START HACKING!</div>
-<div class="blink granted hidden"> <a href="portfolio/index.html" class="button is-primary padding hidden"><span data-heading="Welcome">Welcome</span>welcome</a>
+<div class="blink granted hidden"> 
+
+	<div class="wrapper">
+		<div class="blackpink"><span data-heading="Welcome">Welcome</span>welcome</div>
+		<div class="blackpink__tagline">To the vault of Theophile Vast</div>
+	</div>
+
+	
 <div class=" button rerun hidden">RERUN</div>
 </div>
 
@@ -85,6 +183,9 @@ function hack() {
 	if(counter == password.length){
 		$('.granted, .rerun, .welcome').removeClass('hidden');
 	}
+
+
+	setTimeout(function(){ window.location.href = "./portfolio/index.html"; }, 4000);
 }
 $(window).on('keydown', hack);
 $('.password').on('click', hack);
